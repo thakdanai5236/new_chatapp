@@ -1,0 +1,14 @@
+<div id='chatapp'>
+  <div id='room-list'>
+    <% @rooms.each do |room| %>
+      <div class='room'>
+        <%= link_to room.name, room_path(room), data: {turbo_frame: 'room-messages'} %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id='message-list'>
+    <%= turbo_frame_tag 'room-messages' do %>
+    <% end %>
+  </div>
+</div>
